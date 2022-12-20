@@ -1,21 +1,27 @@
+package NumberGuessingGame;
+import java.util.Random;
 import java.util.Scanner;
+
 public class Main {
 	public static void main(String args[])
 	{
+		Random rnd=new Random();
 		Scanner scn=new Scanner(System.in);
-		int number,mod,i=0;
-		System.out.print("Enter Number : ");
-		number=scn.nextInt();
-		while(number>0)
-		{
-			i++;
-			mod=number%10;
-			number=number/10;
-			if(mod%3==0)
-				System.out.println("\n"+i+". digit is divisible");
-			else
-				System.out.println("\n"+i+". indivisible");
-		}
-		
+		int guess;
+		int number=rnd.nextInt(10);
+		 while(true)
+		    {
+		        System.out.print("\nEnter Your Guess : ");
+		        guess=scn.nextInt();
+		        if(guess<number)
+		        	System.out.print("\nIncrease Your Number : ");
+		        if(guess>number)
+		        	System.out.print("\nReduce Your Number : ");
+		        if(guess==number)
+		        {
+		        	System.out.print("\n-Congratulations-");
+		             break;
+		        }
+		    }
 	}
 }
